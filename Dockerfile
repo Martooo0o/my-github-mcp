@@ -13,7 +13,9 @@ RUN curl -fsSL https://github.com/github/github-mcp-server/releases/latest/downl
 RUN pip install --no-cache-dir mcp-proxy==0.12.0
 
 ENV PORT=8080
-#ENV GITHUB_PERSONAL_ACCESS_TOKEN=""
+
+ARG GITHUB_PERSONAL_ACCESS_TOKEN
+ENV GITHUB_PERSONAL_ACCESS_TOKEN=$GITHUB_PERSONAL_ACCESS_TOKEN
 
 EXPOSE 8080
 
